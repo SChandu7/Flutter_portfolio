@@ -2,9 +2,6 @@
 
 Thank you for visiting my portfolio website repository. This Flutter-based website serves as a showcase of my skills, projects, certifications, and ways to get in touch with me. The website is designed with a strong focus on responsiveness, ensuring that it looks and works flawlessly across a range of devices, from large desktop screens to compact Android devices.
 
-## Live Demo
-
-You can explore the live version of the website [Click to see live demo](https://hamad-anwar.github.io/Portfolio/#/).
 
 ## Screenshots
 
@@ -48,7 +45,7 @@ The portfolio website is built using Flutter, a powerful open-source UI software
 To explore and interact with the portfolio website on your local machine, follow these steps:
 
 1. **Clone the Repository:**
-   git clone https://github.com/Hamad-Anwar/Flutter-Responsive-Portfolio-WebApp.git
+   git clone https://github.com/SChandu7/Flutter-Responsive-Portfolio-WebApp.git
 2. **Install Dependencies:**
    flutter pub get
 3. **Run Application**
@@ -72,8 +69,9 @@ I welcome contributions and suggestions from the community! If you come across a
 
 Your feedback and thoughts are highly valued. Feel free to connect with me through:
 
-- **Email:** rh676838@gmail.com
-- **LinkedIn:** [Hamad Anwar](https://www.linkedin.com/in/hamad-anwar)
+- **Email:** chandrasekharsuragani532@gmail.com
+- **LinkedIn:** [S Chandra Sekhar](https://www.linkedin.com/in/chandus7)
+-  **My PortFolio:** [S Chandra Sekhar](https://chandus7.web.app/)
 
 ## License
 
