@@ -71,12 +71,10 @@ Your feedback and thoughts are highly valued. Feel free to connect with me throu
 
 - **Email:** chandrasekharsuragani532@gmail.com
 - **LinkedIn:** [S Chandra Sekhar](https://www.linkedin.com/in/chandus7)
--  **My PortFolio:** [S Chandra Sekhar](https://chandus7.web.app/)
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-### Designed and developed with ❤️ by [Hamad Anwar](https://www.linkedin.com/in/hamad-anwar/).
+### Designed and developed with ❤️ by [S Chandra Sekhar ](https://chandus7.web.app/).
