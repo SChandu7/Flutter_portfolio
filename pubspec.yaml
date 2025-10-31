@@ -40,7 +40,7 @@ dependencies:
   get: ^4.0.0
  
   photo_view: ^0.14.0
-  url_launcher: ^6.1.12
+  url_launcher: ^6.3.1
   font_awesome_flutter: ^10.5.0
 
 dev_dependencies:

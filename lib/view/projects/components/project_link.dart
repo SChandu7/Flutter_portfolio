@@ -1,4 +1,7 @@
+// ignore: undefined_prefixed_name
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
+
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
