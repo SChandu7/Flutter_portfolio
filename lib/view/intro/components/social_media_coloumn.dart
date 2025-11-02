@@ -11,17 +11,25 @@ class SocialMediaIconColumn extends StatelessWidget {
       children: [
         SocialMediaIcon(
             icon: 'assets/icons/linkedin.svg',
-            onTap: () => launchUrl(Uri.parse(
-                'https://www.linkedin.com/in/s-chandra-sekhar-3a1182266/'))),
+            delay: const Duration(milliseconds: 200),
+            onTap: () => launchUrl(Uri.parse('https://linkedin.chandus7.in'))),
         SocialMediaIcon(
           icon: 'assets/icons/github.svg',
-          onTap: () => launchUrl(Uri.parse('https://github.com/Hfgjgg')),
+          delay: const Duration(milliseconds: 400),
+          onTap: () => launchUrl(Uri.parse('https://github.chandus7.in')),
         ),
-        const SocialMediaIcon(
-          icon: 'assets/icons/dribble.svg',
-        ),
-        const SocialMediaIcon(icon: 'assets/icons/twitter.svg'),
-        const SocialMediaIcon(icon: 'assets/icons/linkedin.svg'),
+        SocialMediaIcon(
+            icon: 'assets/icons/mail3.svg',
+            delay: const Duration(milliseconds: 600),
+            onTap: () => launchUrl(Uri.parse('mailto:dev@chandus7.in'))),
+        SocialMediaIcon(
+            icon: 'assets/icons/twitter.svg',
+            delay: const Duration(milliseconds: 800),
+            onTap: () => launchUrl(Uri.parse('https://x.chandus7.in'))),
+        SocialMediaIcon(
+            icon: 'assets/icons/whatsapp4.svg',
+            delay: const Duration(milliseconds: 1000),
+            onTap: () => launchUrl(Uri.parse('https://whatsapp.chandus7.in'))),
       ],
     );
   }

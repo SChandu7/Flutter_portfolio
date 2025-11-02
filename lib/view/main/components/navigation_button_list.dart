@@ -1,74 +1,96 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/view model/controller.dart';
-import 'package:flutter_portfolio/view model/responsive.dart';
+import '../../../view model/responsive.dart';
 import 'navigation_button.dart';
 
-class NavigationButtonList extends StatelessWidget {
-  const NavigationButtonList({super.key});
+class NavigationButtonList extends StatefulWidget {
+  final PageController controller;
+
+  const NavigationButtonList({super.key, required this.controller});
+
+  @override
+  State<NavigationButtonList> createState() => _NavigationButtonListState();
+}
+
+class _NavigationButtonListState extends State<NavigationButtonList> {
+  int _highlightedIndex = -1;
+  Timer? _timer;
+
+  final List<String> _buttons = [
+    'Home',
+    'About us',
+    'Projects',
+    'Certifications',
+    'Achievements'
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _startSequentialGlow();
+  }
+
+  void _startSequentialGlow() {
+    int index = 0;
+
+    _timer = Timer.periodic(const Duration(milliseconds: 300), (timer) {
+      setState(() {
+        _highlightedIndex = index;
+      });
+
+      index++;
+
+      if (index >= _buttons.length) {
+        _timer?.cancel();
+        _highlightedIndex = -1; // remove glow after finishing
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return TweenAnimationBuilder(
-      tween: Tween(begin: 0.0, end: 1.0),
-      duration: const Duration(milliseconds: 200),
-      builder: (context, value, child) {
-        return Transform.scale(
-          scale: value,
-          child: Row(
-            children: [
-              NavigationTextButton(
-                onTap: () => _scrollToSection(0),
-                text: 'Home',
-              ),
-              NavigationTextButton(
-                onTap: () => _scrollToSection(1),
-                text: 'About ',
-              ),
-              NavigationTextButton(
-                onTap: () => _scrollToSection(2),
-                text: 'Projects',
-              ),
-              NavigationTextButton(
-                onTap: () => _scrollToSection(3),
-                text: 'Certifications',
-              ),
-              if (!Responsive.isLargeMobile(context))
-                NavigationTextButton(
-                  onTap: () => _scrollToSection(4),
-                  text: 'Achievements',
-                ),
-            ],
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: List.generate(_buttons.length, (index) {
+        // Always create the button for animation, but hide visually on large mobile
+        bool isVisible = !(Responsive.isLargeMobile(context) && index == 4);
+
+        return Visibility(
+          visible: isVisible,
+          maintainSize: true,
+          maintainAnimation: true,
+          maintainState: true,
+          child: NavigationTextButton(
+            onTap: () => _scrollToSection(index),
+            text: _buttons[index],
+            glow: _highlightedIndex == index,
           ),
         );
-      },
+      }),
     );
   }
 
-  /// Smooth smart scroll handler
   void _scrollToSection(int targetPage) {
-    // Get the current page index from the controller
-    final currentPage = controller.page ?? 0.0;
+    if (!widget.controller.hasClients) return;
 
-    // Calculate the distance between pages
+    final currentPage =
+        widget.controller.page ?? widget.controller.initialPage.toDouble();
     final pageDistance = (targetPage - currentPage).abs();
 
-    // Base duration (short jumps)
     int baseDuration = 700;
-
-    // For longer jumps, multiply the duration
-    // Example: from Home(0) → Certifications(3) => 500 * 3 = 1500 ms
     int adjustedDuration =
         (baseDuration * pageDistance).clamp(400, 1800).toInt();
 
-    if (pageDistance == 2) {
-      adjustedDuration += 400;
-    } else if (pageDistance >= 3) {
-      adjustedDuration += 700;
-    }
-    print(
-        'Adjusted Duration: $adjustedDuration ms for page distance: $pageDistance');
+    if (pageDistance == 2) adjustedDuration += 400;
+    if (pageDistance >= 3) adjustedDuration += 700;
 
-    controller.animateToPage(
+    widget.controller.animateToPage(
       targetPage,
       duration: Duration(milliseconds: adjustedDuration),
       curve: Curves.easeInOutCubic,

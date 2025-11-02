@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutSection extends StatelessWidget {
   const AboutSection({super.key});
@@ -94,29 +95,24 @@ class AboutSection extends StatelessWidget {
                 ...[
                   "Oct 2025 - 24Hrs Hackathon @ IIST Kerala",
                   "Oct 2025 - Participated in 48Hrs Deviathon Hackathon @ GLA University, Mathura",
-                  "Sep 2025 - Sunhacks International Hackathon @ Sandip University (Asia Book of Records)",
-                  "Aug 2025 - Showcasing The Startup Idea To Krishna Ditrict Collector at Collector office,Vijayawada "
-                      "Aug 2025 - Collaborated with startup 'Kisan-Konect' and developed Application",
+                  "Sep 2025 - 36Hrs  Sunhacks International Hackathon @ Sandip University (Asia Book of Records)",
+                  "Aug 2025 - Showcasing The Startup Idea To Krishna Ditrict Collector at Collector office,Vijayawada ",
+                  "Aug 2025 - Collaborated with startup 'Kisan-Konect' and developed Application",
                   "Jul 2025 - Developed AI-based autonomous agricultural drone",
-                  "Jun 2025 - IoT project: Water quality monitoring",
-                  "Jun 2025 - Completed full-stack Digital Signature Application",
+                  "Jun 2025 - IoT project: Water quality monitoring Through Application",
+                  "Jun 2025 - Completed an  Digital Signature Application",
                   "Jun 2025 - Developed end-to-end assignment tracking app (Flutter + Django + AWS)",
                   "May 2025 - Internship as Software Trainee @ ConnectEk Solutions Pvt Ltd",
                   "Apr 2025 - Freelance project: Sports data management",
                   "Feb 2025 - DroneFusion & Amaravati Drone Hackathon (PetDrone project)",
                   "Feb 2025 - Roundtable Conference on Drone Ecosystem Development @ Novotel, Vijayawada",
                   "Jan 2024 - Code-Dale Hackathon @ Gitam University, Hyderabad",
-                  "Jan 2024 - DST Technology Development & Assessment Event @ University of Hyderabad",
-                  "Dec 2024 - First Flutter freelance project",
+                  "Jan 2024 - Attended DST Technology Development & Assessment Event @ University of Hyderabad",
                   "Nov 2024 - Started freelancing with Android app development",
                   "May 2024 - 6-month computer hardware internship @ Schneider Electric, Hyderabad",
                   "Apr 2023 - Started learning J2EE (Servlets, JDBC, JMS, Spring Boot)",
-                  "Feb 2023 - Completed DSA in Java (700+ hrs)",
+                  "Feb 2023 - Completed DSA in Java (700+ hrs of practice with 14+ hrs daily)",
                   "Sep 2022 - Developed C++ project 'Random Number Generator & Selection Process'",
-                  "Aug 2022 - Passed C Programming (72/80)",
-                  "Apr 2022 - Started learning programming in C",
-                  "Mar 2022 - Failed C Programming subject",
-                  "Jul 2021 - Started Diploma in CSE @ Chebrolu Engineering College",
                 ]
                     .map((item) => Padding(
                           padding: const EdgeInsets.symmetric(vertical: 6.0),
@@ -193,7 +189,7 @@ class AboutSection extends StatelessWidget {
             sectionTitle("Let's Collaborate 🚀", gradient),
             const SizedBox(height: 10),
             const Text(
-              "Open for freelance projects and collaborations.\nReach me at: chandrasekhar@example.com",
+              "Open for freelance projects,collaboration And Hiring.\nReach me at: dev@chandus7.in",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16, color: Colors.white70),
             ),
@@ -201,12 +197,25 @@ class AboutSection extends StatelessWidget {
             Wrap(
               spacing: 20,
               children: const [
-                SocialIcon(icon: FontAwesomeIcons.github),
-                SocialIcon(icon: FontAwesomeIcons.linkedin),
-                SocialIcon(icon: FontAwesomeIcons.twitter),
-                SocialIcon(icon: FontAwesomeIcons.whatsapp),
+                SocialIcon(
+                  icon: FontAwesomeIcons.github,
+                  url: 'https://github.com/SChandu7',
+                ),
+                SocialIcon(
+                  icon: FontAwesomeIcons.linkedin,
+                  url: 'https://linkedin.com/in/chandus7',
+                ),
+                SocialIcon(
+                  icon: FontAwesomeIcons.twitter,
+                  url: 'https://x.com/Chandu18499814',
+                ),
+                SocialIcon(
+                  icon: FontAwesomeIcons.whatsapp,
+                  url:
+                      'https://wa.me/919949597079', // e.g. https://wa.me/919876543210
+                ),
               ],
-            ),
+            )
           ],
         ),
       ),
@@ -331,19 +340,31 @@ class StatBox extends StatelessWidget {
 
 class SocialIcon extends StatelessWidget {
   final IconData icon;
-  const SocialIcon({required this.icon, super.key});
+  final String url; // Add URL or any action
+  const SocialIcon({required this.icon, required this.url, super.key});
+
+  Future<void> _launchURL() async {
+    final uri = Uri.parse(url);
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+      throw Exception('Could not launch $url');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [Color(0xFFFF007C), Color(0xFF007BFF)],
+    return InkWell(
+      onTap: _launchURL, // Each icon clickable
+      borderRadius: BorderRadius.circular(50),
+      child: Container(
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            colors: [Color(0xFFFF007C), Color(0xFF007BFF)],
+          ),
+          shape: BoxShape.circle,
         ),
-        shape: BoxShape.circle,
+        child: Icon(icon, color: Colors.white, size: 24),
       ),
-      child: Icon(icon, color: Colors.white, size: 24),
     );
   }
 }

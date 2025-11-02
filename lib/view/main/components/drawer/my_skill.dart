@@ -105,7 +105,7 @@ class MySKills extends StatelessWidget {
         AnimatedLinearProgressIndicator(
             percentage: 0.85, title: 'MySql', image: 'assets/icons/mysql2.png'),
         AnimatedLinearProgressIndicator(
-            percentage: 0.65, title: 'Aws', image: 'assets/icons/aws.png'),
+            percentage: 0.65, title: 'AWS', image: 'assets/icons/aws.png'),
         AnimatedLinearProgressIndicator(
             percentage: 0.8,
             title: 'Responsive Design',

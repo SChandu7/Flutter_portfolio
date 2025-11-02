@@ -62,39 +62,27 @@ class AnimatedImageContainerState extends State<AnimatedImageContainer>
                 ),
               ],
             ),
-            child: InkWell(
-              onDoubleTap: () {
-                // Action to perform on tap
-                print('Button tapped!');
-                img = 'assets/images/profile.jpg';
-                setState(() {});
-              },
-              onTap: () {
-                img = 'assets/images/image.png';
-                setState(() {});
-              },
-              child: Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Colors.black, // Optional background color
-                  borderRadius: BorderRadius.circular(30), // Circular corners
-                  image: DecorationImage(
-                    image: AssetImage(img),
-                    // Set image
-                    fit: BoxFit.cover, // Ensures the image covers the container
-                  ),
+            child: Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.black, // Optional background color
+                borderRadius: BorderRadius.circular(30), // Circular corners
+                image: DecorationImage(
+                  image: AssetImage(img),
+                  // Set image
+                  fit: BoxFit.cover, // Ensures the image covers the container
                 ),
-                height: Responsive.isLargeMobile(context)
-                    ? MediaQuery.sizeOf(context).width * 0.38
-                    : Responsive.isTablet(context)
-                        ? MediaQuery.sizeOf(context).width * 0.38
-                        : 280,
-                width: Responsive.isLargeMobile(context)
-                    ? MediaQuery.sizeOf(context).width * 0.26
-                    : Responsive.isTablet(context)
-                        ? MediaQuery.sizeOf(context).width * 0.18
-                        : 240,
               ),
+              height: Responsive.isLargeMobile(context)
+                  ? MediaQuery.sizeOf(context).width * 0.38
+                  : Responsive.isTablet(context)
+                      ? MediaQuery.sizeOf(context).width * 0.38
+                      : 280,
+              width: Responsive.isLargeMobile(context)
+                  ? MediaQuery.sizeOf(context).width * 0.26
+                  : Responsive.isTablet(context)
+                      ? MediaQuery.sizeOf(context).width * 0.18
+                      : 240,
             ),
           ),
         );
