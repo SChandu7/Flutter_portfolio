@@ -15,8 +15,8 @@ class _MenuButtonState extends State<MenuButton> {
   @override
   Widget build(BuildContext context) {
     // Base glow: 30% -> On hover: 120%
-    final double baseGlow = 0.69;
-    final double hoverGlow = 1.4;
+    const double baseGlow = 0.69;
+    const double hoverGlow = 1.4;
 
     return Column(
       children: [
@@ -63,7 +63,7 @@ class _MenuButtonState extends State<MenuButton> {
                           colors: [Colors.pink, Colors.blue.shade900],
                         ).createShader(bounds);
                       },
-                      child: Icon(
+                      child: const Icon(
                         Icons.menu,
                         color: Colors.white,
                         size: defaultPadding * 1.2,

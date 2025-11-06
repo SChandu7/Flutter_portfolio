@@ -55,24 +55,34 @@ class _NavigationButtonListState extends State<NavigationButtonList> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(_buttons.length, (index) {
-        // Always create the button for animation, but hide visually on large mobile
-        bool isVisible = !(Responsive.isLargeMobile(context) && index == 4);
+    return Padding(
+      // 👇 Add vertical space above the navigation bar
+      padding: const EdgeInsets.only(top: 16.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: List.generate(_buttons.length, (index) {
+          bool isVisible = !(Responsive.isLargeMobile(context) && index == 4);
 
-        return Visibility(
-          visible: isVisible,
-          maintainSize: true,
-          maintainAnimation: true,
-          maintainState: true,
-          child: NavigationTextButton(
-            onTap: () => _scrollToSection(index),
-            text: _buttons[index],
-            glow: _highlightedIndex == index,
-          ),
-        );
-      }),
+          return Visibility(
+            visible: isVisible,
+            maintainSize: true,
+            maintainAnimation: true,
+            maintainState: true,
+            child: Row(
+              children: [
+                // 👇 Add space before first button (Home)
+                if (index == 0) const SizedBox(width: 18),
+
+                NavigationTextButton(
+                  onTap: () => _scrollToSection(index),
+                  text: _buttons[index],
+                  glow: _highlightedIndex == index,
+                ),
+              ],
+            ),
+          );
+        }),
+      ),
     );
   }
 
@@ -83,12 +93,12 @@ class _NavigationButtonListState extends State<NavigationButtonList> {
         widget.controller.page ?? widget.controller.initialPage.toDouble();
     final pageDistance = (targetPage - currentPage).abs();
 
-    int baseDuration = 700;
+    int baseDuration = 450;
     int adjustedDuration =
         (baseDuration * pageDistance).clamp(400, 1800).toInt();
 
-    if (pageDistance == 2) adjustedDuration += 400;
-    if (pageDistance >= 3) adjustedDuration += 700;
+    if (pageDistance == 2) adjustedDuration += 150;
+    if (pageDistance >= 3) adjustedDuration += 300;
 
     widget.controller.animateToPage(
       targetPage,

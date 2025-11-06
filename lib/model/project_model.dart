@@ -9,15 +9,63 @@ class Project {
 List<Project> projectList = [
   Project(
     'SportsForChange',
-    'Our Sports for Change project revolutionizes school sports management with a smart app. It streamlines event data, enhances accessibility, and empowers students, organizers, and committees through efficient results tracking and updates',
-    'assets/images/cui.png',
-    'https://github.com/SChandu7/SportsFroChangeProject.git',
+    'Sports for Change is a platform that organizes and tracks school sports events, helping students, coaches, and organizers manage games, results, and performance efficiently . The Project is Taken Under SportsForChange By HCL Company,Vijayawada',
+    'assets/images/sfcproject.png',
+    'https://github.com/SChandu7/SportsForChange.git',
   ),
   Project(
-    'Coffee Application',
-    'Presenting "Coffee" - a Flutter UI application that invites you to indulge in a delightful coffee adventure. Immerse yourself in the world of rich aroma and flavor as you browse through an exquisite selection of specialty coffees. With a user-friendly interface, exploring different blends and discovering their unique details becomes a delightful experience.',
-    'assets/images/coffee.png',
-    'https://github.com/SChandu7/Coffee-Shop-Beautiful-UI.git',
+    'AgriNutriTrack',
+    'AgriNutriTrack is an app where each vegetable or crop has a QR code showing quality, nutrient info, and freshness, while farmers can create produce cards for transparency.',
+    'assets/images/agriproject.png',
+    'https://github.com/SChandu7/Voice-Assistant-AI.git',
+  ),
+  Project(
+    'EasyVoice Assist',
+    "A smart real-time voice chatbot built with Flutter and Perplexity API. It listens to your voice, understands your query, and responds instantly in a natural female voice — all within a sleek, modern chat interface.",
+    'assets/images/voiceproject.png',
+    'https://github.com/SChandu7/SportsForChange.git',
+  ),
+  Project(
+    'Kisan Konect',
+    "Kisan Konnect is a digital platform that connects farmers directly with consumers, enabling fair pricing, easy crop sales, and transparent transactions without middlemen.",
+    'assets/images/kisanproject.png',
+    'https://github.com/SChandu7/KisanKonnect',
+  ),
+  Project(
+    'Shopify-Store-Clothes',
+    "A modern Shopify-based e-commerce clothing store offering a seamless shopping experience with product listings, smart cart, secure checkout, and real-time order tracking.",
+    'assets/images/shopifyproject.png',
+    'https://github.com/SChandu7/ecommerce-shopify-store',
+  ),
+  Project(
+    'Aqua Clear-Drop',
+    "Arduino Turbidity Tester measures water clarity using a sensor and Esp32, showing real-time results on an app to check water quality easily and accurately.",
+    'assets/images/aquaproject.png',
+    'https://github.com/SChandu7/Aqua-Clear-Drop',
+  ),
+  Project(
+    'HealthTech',
+    "HealthTech is a secure digital platform using QR codes for fast, paperless access and sharing of patient medical records between doctors and patients",
+    'assets/images/healthproject.png',
+    'https://github.com/SChandu7/HealthTech',
+  ),
+  Project(
+    'DigitalSignatureApp',
+    "A Digital Signature Application Can Place the signature in the Marksheets,Pdfs,Images,Etc...",
+    'assets/images/digitalproject.png',
+    'https://github.com/SChandu7/DigitalSignatureApp',
+  ),
+  Project(
+    'AI SMart Centre',
+    "AI Smart Centre is an intelligent learning hub that combines AI-powered course recommendations, a chatbot assistant, tech news, project collaboration, and live study features — helping students learn, connect, and grow together on one smart platform.",
+    'assets/images/smartproject.png',
+    'https://github.com/SChandu7/Ai-Smart-Centre',
+  ),
+  Project(
+    'Drone Landmine Detection',
+    "Landmine Detection using Drone Camera is an AI-powered drone project designed to enhance safety in mine-affected areas. The system uses a drone equipped with a camera and computer vision algorithms to detect landmines in real-time, allowing operators to safely monitor and avoid hazardous zones.",
+    'assets/images/landmineproject.png',
+    'https://github.com/SChandu7/DronelandmineDetection',
   ),
   Project(
     'Car Controller Application UI',
@@ -55,4 +103,16 @@ List<Project> projectList = [
       'Introducing the extraordinary "Doctor Appointment System" - a state-of-the-art Flutter UI application that redefines healthcare accessibility and efficiency. Seamlessly crafted, this app empowers users to effortlessly select doctors based on categories, engage in smooth messaging, and access detailed profiles.',
       'assets/images/doctor.png',
       'https://github.com/SChandu7/Appointment-Doctor-App.git'),
+  Project(
+    'Medical Prescription App',
+    "A smart medical information system built to provide disease details, care instructions, and prescription guidance based on user input.",
+    'assets/images/medicalproject.png',
+    'https://github.com/SChandu7/Medical-Prescription',
+  ),
+  Project(
+    'Assign-Sync',
+    "Assignmwnts Application Tracking records by user doing tasks given by the faculty will be monitored",
+    'assets/images/assignproject.png',
+    'https://github.com/SChandu7/Assign-Sync',
+  ),
 ];

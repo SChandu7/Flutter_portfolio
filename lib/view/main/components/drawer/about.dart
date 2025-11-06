@@ -25,7 +25,7 @@ class About extends StatelessWidget {
               height: defaultPadding / 4,
             ),
             const Text(
-              'Pursuing B.Tech(AiMl) \n in \n Acharya Nagarjuna University,Guntur',
+              'Pursuing B.Tech(AiMl) in \n Acharya Nagarjuna University,Guntur',
               textAlign: TextAlign.center,
               style: TextStyle(fontWeight: FontWeight.w200, height: 1.5),
             ),

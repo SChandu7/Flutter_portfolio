@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/view%20model/controller.dart';
 import 'package:flutter_portfolio/res/constants.dart';
 import 'package:flutter_portfolio/view/main/components/navigation_bar.dart';
 import '../../view model/responsive.dart';
@@ -35,6 +34,7 @@ class MainView extends StatelessWidget {
                   const Spacer(),
                 ],
               ),
+         const   SizedBox(height: 6),
             Expanded(
               flex: 9,
               child: PageView(

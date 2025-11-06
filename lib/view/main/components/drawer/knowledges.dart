@@ -22,8 +22,10 @@ class Knowledges extends StatelessWidget {
         KnowledgeText(knowledge: 'Backend Maintaniace'),
         KnowledgeText(knowledge: 'Database Handling'),
         KnowledgeText(knowledge: 'Apps/Web Server Deploy'),
-        KnowledgeText(knowledge: 'Computer Concepts(CN,OS,ARC)'),
-        KnowledgeText(knowledge: 'Git, Github'),
+        KnowledgeText(knowledge: 'Ai Model Training/Developement'),
+        KnowledgeText(knowledge: 'ML/DL Robotic Integration'),
+        KnowledgeText(knowledge: 'Computer Concepts(CN,OS,ARCH)'),
+        KnowledgeText(knowledge: 'Git, Github Vesrion Control'),
       ],
     );
   }

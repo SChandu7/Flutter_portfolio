@@ -25,7 +25,7 @@ class TopNavigationBar extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).push(new MaterialPageRoute<HomePage>(
                       builder: (BuildContext context) {
-                        return new HomePage();
+                        return const  HomePage();
                       },
                     ));
                   },

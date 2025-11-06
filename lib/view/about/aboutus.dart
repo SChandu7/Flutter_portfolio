@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/view%20model/responsive.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -7,7 +8,7 @@ class AboutSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final gradient = const LinearGradient(
+    const gradient = LinearGradient(
       colors: [Color(0xFFFF007C), Color(0xFF007BFF)],
     );
 
@@ -34,7 +35,7 @@ class AboutSection extends StatelessWidget {
 
             // 1. Personal Introduction
             Text(
-              "I'm S Chandra Sekhar, a passionate Full Stack & Flutter Developer dedicated to building powerful, scalable digital products. I love crafting experiences that merge design, performance, and innovation.",
+              "Experienced Full-Stack developer With a Proven track record of delivering high-performance, scalable Applications. Skilled in leveraging modern technologies such as Flutter ,Django, PostgreSql, Aws to build robust and user friendly solutions.",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 18,
@@ -48,7 +49,13 @@ class AboutSection extends StatelessWidget {
             sectionTitle("Education", gradient),
             const SizedBox(height: 10),
             const Text(
-              "B.Tech in Artificial Intelligence & Machine Learning\n Acharya Nagarjuna University (2023 - Present)\nRelevant Courses: AI, ML, Software Engineering, Data Science.",
+              "B.Tech in Ai\Ml\n Acharya Nagarjuna University (2024-2027).",
+              textAlign: TextAlign.center,
+              style:
+                  TextStyle(fontSize: 15, color: Colors.white70, height: 1.6),
+            ),
+            const Text(
+              "B.Tech in CSE \n Rvit College,Chebrolu (2021 - 2024).",
               textAlign: TextAlign.center,
               style:
                   TextStyle(fontSize: 16, color: Colors.white70, height: 1.6),
@@ -58,28 +65,50 @@ class AboutSection extends StatelessWidget {
             // 2. Technical Skills
             sectionTitle("Technical Skills", gradient),
             const SizedBox(height: 10),
-            const Wrap(
-              spacing: 12,
-              runSpacing: 12,
-              alignment: WrapAlignment.center,
-              children: const [
-                SkillChip(title: "C,C++"),
-                SkillChip(title: "Java J2EE"),
-                SkillChip(title: "Python"),
-                SkillChip(title: "Dart"),
-                SkillChip(title: "Flutter"),
-                SkillChip(title: "Django"),
-                SkillChip(title: "MySql"),
-                SkillChip(title: "AWS"),
-                SkillChip(title: "Html/Css"),
-                SkillChip(title: "JavaScript"),
-                SkillChip(title: "MongoDb"),
-                SkillChip(title: "Node.js"),
-                SkillChip(title: "Ai/TensorFlow"),
-                SkillChip(title: "ML/OpenCv"),
-                SkillChip(title: "Iot/Sensors"),
-                SkillChip(title: "Drone Prog"),
-              ],
+
+            LayoutBuilder(
+              builder: (context, constraints) {
+                double width = constraints.maxWidth;
+                double chipWidth;
+                bool isMobile = width < 600;
+
+                // ✅ Responsive width logic
+                if (width > 900) {
+                  chipWidth = (width / 3) - 40; // ~3 per row on desktop
+                } else if (width > 600) {
+                  chipWidth = (width / 2) - 30; // ~2 per row on tablet
+                } else {
+                  chipWidth = width - 40; // ~1 per row on mobile
+                }
+
+                return Wrap(
+                  spacing: 10,
+                  runSpacing: 10,
+                  alignment: WrapAlignment.center,
+                  children: const [
+                    SkillChip(title: "C, C++"),
+                    SkillChip(title: "Java J2EE"),
+                    SkillChip(title: "Python"),
+                    SkillChip(title: "Dart"),
+                    SkillChip(title: "Flutter"),
+                    SkillChip(title: "Django"),
+                    SkillChip(title: "MySql"),
+                    SkillChip(title: "AWS"),
+                    SkillChip(title: "HTML / CSS"),
+                    SkillChip(title: "JavaScript"),
+                    SkillChip(title: "MongoDB"),
+                    SkillChip(title: "Node.js"),
+                    SkillChip(title: "TensorFlow"),
+                    SkillChip(title: "OpenCV"),
+                    SkillChip(title: "IoT/Sensors"),
+                    SkillChip(title: "Drone Prog"),
+                  ].map((chip) {
+                    return SizedBox(
+                        width: isMobile ? chipWidth / 2.3 : chipWidth / 1.5,
+                        child: chip);
+                  }).toList(),
+                );
+              },
             ),
 
             const SizedBox(height: 40),
@@ -98,21 +127,15 @@ class AboutSection extends StatelessWidget {
                   "Sep 2025 - 36Hrs  Sunhacks International Hackathon @ Sandip University (Asia Book of Records)",
                   "Aug 2025 - Showcasing The Startup Idea To Krishna Ditrict Collector at Collector office,Vijayawada ",
                   "Aug 2025 - Collaborated with startup 'Kisan-Konect' and developed Application",
-                  "Jul 2025 - Developed AI-based autonomous agricultural drone",
-                  "Jun 2025 - IoT project: Water quality monitoring Through Application",
-                  "Jun 2025 - Completed an  Digital Signature Application",
+                  "Jun 2025 - Did an IoT project: Water quality monitoring Through Application",
                   "Jun 2025 - Developed end-to-end assignment tracking app (Flutter + Django + AWS)",
-                  "May 2025 - Internship as Software Trainee @ ConnectEk Solutions Pvt Ltd",
+                  "May 2025 - Done Internship as Software Trainee @ ConnectEk Solutions Pvt Ltd",
                   "Apr 2025 - Freelance project: Sports data management",
-                  "Feb 2025 - DroneFusion & Amaravati Drone Hackathon (PetDrone project)",
-                  "Feb 2025 - Roundtable Conference on Drone Ecosystem Development @ Novotel, Vijayawada",
-                  "Jan 2024 - Code-Dale Hackathon @ Gitam University, Hyderabad",
+                  "Feb 2025 - Participated DroneFusion & Amaravati Drone Hackathon (PetDrone project)",
+                  "Feb 2025 - Attended Roundtable Conference on Drone Ecosystem Development @ Novotel, Vijayawada",
+                  "Jan 2024 - Participated Code-Dale Hackathon @ Gitam University, Hyderabad",
                   "Jan 2024 - Attended DST Technology Development & Assessment Event @ University of Hyderabad",
-                  "Nov 2024 - Started freelancing with Android app development",
-                  "May 2024 - 6-month computer hardware internship @ Schneider Electric, Hyderabad",
-                  "Apr 2023 - Started learning J2EE (Servlets, JDBC, JMS, Spring Boot)",
-                  "Feb 2023 - Completed DSA in Java (700+ hrs of practice with 14+ hrs daily)",
-                  "Sep 2022 - Developed C++ project 'Random Number Generator & Selection Process'",
+                  "May 2024 - Did an 6-month computer hardware internship @ Schneider Electric, Hyderabad",
                 ]
                     .map((item) => Padding(
                           padding: const EdgeInsets.symmetric(vertical: 6.0),
@@ -143,11 +166,11 @@ class AboutSection extends StatelessWidget {
             const SizedBox(height: 40),
 
             // 6. Freelance Philosophy
-            sectionTitle("Freelance & Work Philosophy", gradient),
+            sectionTitle("Work Philosophy", gradient),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
-                "I believe in building fearlessly and learning endlessly. Open for freelance collaborations and love helping startups turn bold ideas into real digital products.",
+                "I Believe in building fearlessly and learning endlessly. Open for freelance collaborations and love helping startups turn bold ideas into real digital products.",
                 textAlign: TextAlign.center,
                 style:
                     TextStyle(fontSize: 16, color: Colors.white70, height: 1.6),
@@ -177,7 +200,7 @@ class AboutSection extends StatelessWidget {
               child: const Text(
                 "\"Build fearlessly. Learn endlessly.\"",
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 18,
                   fontStyle: FontStyle.italic,
                   color: Colors.white,
                 ),
@@ -188,13 +211,13 @@ class AboutSection extends StatelessWidget {
             // 10. Contact
             sectionTitle("Let's Collaborate 🚀", gradient),
             const SizedBox(height: 10),
-            const Text(
-              "Open for freelance projects,collaboration And Hiring.\nReach me at: dev@chandus7.in",
+            Text(
+              "Open for freelance projects,  ${Responsive.isLargeMobile(context) ? '\n' : ''} Collaboration And Hiring.\nReach me at  dev@chandus7.in",
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16, color: Colors.white70),
+              style: const TextStyle(fontSize: 15, color: Colors.white70),
             ),
             const SizedBox(height: 20),
-            Wrap(
+            const Wrap(
               spacing: 20,
               children: const [
                 SocialIcon(
@@ -261,6 +284,7 @@ class SkillChip extends StatelessWidget {
       ),
       child: Text(
         title,
+        textAlign: TextAlign.center,
         style:
             const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
       ),
@@ -297,7 +321,7 @@ class StatBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final gradient = const LinearGradient(
+    const gradient = const LinearGradient(
       colors: [Color(0xFFFF007C), Color(0xFF007BFF)],
     );
     return Container(
@@ -357,8 +381,8 @@ class SocialIcon extends StatelessWidget {
       borderRadius: BorderRadius.circular(50),
       child: Container(
         padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
             colors: [Color(0xFFFF007C), Color(0xFF007BFF)],
           ),
           shape: BoxShape.circle,

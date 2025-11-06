@@ -56,12 +56,60 @@ List<CertificateModel> certificateList = [
         'https://drive.google.com/file/d/1fKwjuq0MN0ANqZZEQ849w328uH3Jisno/view?usp=drivesdk',
   ),
   CertificateModel(
-    name: 'Powering Your App with Live Web Data',
-    organization: 'LinkedIn',
-    date: 'JUL 2023',
-    skills: 'Flutter . Dart . Firebase . API\'s',
+    name: 'OOps In Java',
+    organization: 'Great Learning',
+    date: 'JUL 2024',
+    skills: 'Java . C++ . Programming . DSA',
     credential:
-        'https://www.linkedin.com/learning/flutter-part-08-powering-your-app-with-live-web-data',
+        'https://drive.google.com/file/d/1j1FfkY-kzrI2ljB-BNc9Cx7QtxuFDN2s/view?usp=sharing',
+  ),
+  CertificateModel(
+    name: 'Ai-Quest',
+    organization: 'KITS College,Gunutr',
+    date: 'JUL 2025',
+    skills: 'Ai . Flutter . ML',
+    credential:
+        'https://drive.google.com/file/d/1ViStKIz0CIl7frIcaRlQATveFhWw35y5/view?usp=sharing',
+  ),
+  CertificateModel(
+    name: 'Hardware Internship',
+    organization: 'RagaTech Source,Tirupati',
+    date: 'Dec 2023',
+    skills: 'Programming . Computer . Hardware',
+    credential:
+        'https://drive.google.com/file/d/1IeBGQp5rVPyXIzQiMKxTWdNQEqDp0Ibm/view?usp=sharing',
+  ),
+  CertificateModel(
+    name: 'BectaGon-2K25',
+    organization: 'Bapatla Eng College',
+    date: 'Feb 2025',
+    skills: 'Programming . Java . Python',
+    credential:
+        'https://drive.google.com/file/d/1a6FKG2BaYVHDtmzZyV_fI28BbKoNMbwu/view?usp=sharing',
+  ),
+  CertificateModel(
+    name: 'Python Programming',
+    organization: 'Open-Weaver',
+    date: 'Mar 2024',
+    skills: 'Programming . Python ',
+    credential:
+        'https://drive.google.com/file/d/1XR245HHMrVXU_IGmR1ra118NLCH8Tyei/view?usp=sharing',
+  ),
+  CertificateModel(
+    name: 'JavaScript ',
+    organization: 'Open-Weaver',
+    date: 'Mar 2024',
+    skills: 'Programming . Html . Javascript ',
+    credential:
+        'https://drive.google.com/file/d/1MsYo53SLEJ694rFIeCuhV4GrdNYwlPeN/view?usp=sharing',
+  ),
+  CertificateModel(
+    name: 'Partial Coding',
+    organization: 'AnuMahotsav-Anu',
+    date: 'May 2025',
+    skills: 'Programming . Java . Python ',
+    credential:
+        'https://drive.google.com/file/d/1XwrZgQvk-GyIVYM7WGIPHYJ0IrwCB5mP/view?usp=sharing',
   ),
   CertificateModel(
     name: 'Firebase Cloud Firestore',
@@ -72,25 +120,10 @@ List<CertificateModel> certificateList = [
         'https://www.linkedin.com/learning/flutter-part-10-firebase-cloud-firestore',
   ),
   CertificateModel(
-    name: 'Android App Security',
-    organization: 'LinkedIn',
-    date: 'JUL 2023',
-    skills: 'Pentesting . Android App',
-    credential:
-        'https://www.linkedin.com/learning/android-app-security-a-structured-approach-to-pen-testing8',
-  ),
-  CertificateModel(
     name: 'Foundations of Cybersecurity',
     organization: 'Grow with Google on Coursera',
     date: 'JUL 2023',
     skills: 'Ethical Hacking . Linux . Cyber Security ',
-    credential: 'https://coursera.org/share/67e5cb0dd7c478f1d7ec81079c3a40b8',
-  ),
-  CertificateModel(
-    name: 'HTML, CSS, and Javascript for Web Developers',
-    organization: 'JUL Coursera',
-    date: 'JUL 2023',
-    skills: 'HTML . CSS . JS . Web Development',
     credential: 'https://coursera.org/share/67e5cb0dd7c478f1d7ec81079c3a40b8',
   ),
   CertificateModel(
@@ -100,5 +133,69 @@ List<CertificateModel> certificateList = [
     skills: 'Cyber Security . Networking ',
     credential:
         'https://drive.google.com/file/d/1fNMLM9O-0eGGuVnUr9z4qbYSVNic15_c/view?usp=drivesdk',
+  ),
+  CertificateModel(
+    name: 'Drone-Fusion',
+    organization: 'VRSEC-University,Vjwd',
+    date: 'Apr 2025',
+    skills: 'Electronics . Drone . Hardware ',
+    credential:
+        'https://drive.google.com/file/d/1-IXwh62NiF7Lxlkxh7ToV0WBxdKJrh-P/view?usp=sharing',
+  ),
+  CertificateModel(
+    name: 'Codedale 24hr Hackathon',
+    organization: 'Gitam University-Hyd',
+    date: 'Jan 2025',
+    skills: 'Ai . Flutter . Java',
+    credential:
+        'https://drive.google.com/file/d/1ALc9E-Pwjih85IYt8DApLK1zz_TqPe39/view?usp=sharing',
+  ),
+  CertificateModel(
+    name: 'Hack-Orbital 24hr Hackathon',
+    organization: 'IIST - Kerala',
+    date: 'Oct 2025',
+    skills: 'Agritech . Hardware . Software ',
+    credential:
+        'https://drive.google.com/file/d/1UIThv88YUmGDNjmstm4cW2P2KloJZwxY/view?usp=sharing',
+  ),
+  CertificateModel(
+    name: 'Sunhacks 36hr Hackathon',
+    organization: 'Sandip-University,Mumbai',
+    date: 'Aug 2025',
+    skills: 'Healthtech . Software ',
+    credential:
+        'https://drive.google.com/file/d/1MaXGBD_PP07wX7mTYTQbeRG-nMhA2JvR/view?usp=sharing',
+  ),
+  CertificateModel(
+    name: 'Deviathon 48hr Hackathon',
+    organization: 'Gla University,Delhi',
+    date: 'Sep 2025',
+    skills: 'IOt . Electronics . Networking ',
+    credential:
+        'https://drive.google.com/file/d/1FFGk1HmM4AOj6uwZY3tuRse94wv7ZATB/view?usp=sharing',
+  ),
+  CertificateModel(
+    name: 'Bhartiya Antariksh Hackathon',
+    organization: 'H2S / ISRO',
+    date: 'Aug 2025',
+    skills: 'Software . Networking . SpaceTech ',
+    credential:
+        'https://drive.google.com/file/d/1VkdsxVXJZsvxwpD-5ZXmdNaqQ8H_DCX4/view?usp=sharing',
+  ),
+  CertificateModel(
+    name: 'NAsa Space Apps Challenge',
+    organization: 'Nasa',
+    date: 'Oct 2025',
+    skills: 'SpaceTech . Networking . Software ',
+    credential:
+        'https://drive.google.com/file/d/1LdKzt0feTE8lU0reRxiuRrfJgXYt4U76/view?usp=sharing',
+  ),
+  CertificateModel(
+    name: 'Competetive Programming Bootcamp',
+    organization: 'GreeksForGreeks',
+    date: 'Apr 2025',
+    skills: 'Frameworks . Programming . Software ',
+    credential:
+        'https://drive.google.com/file/d/1z61Jjl_rH5NSESJmrcpetBa2VwbdzgnY/view?usp=sharing',
   ),
 ];
