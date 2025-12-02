@@ -5,6 +5,7 @@ import 'package:flutter_portfolio/view/splash/splash_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
+
   runApp(const MyApp());
 }
 

@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/view/certifications/components/imageviewer2.dart';
+import 'package:flutter_portfolio/view/projects/components/image_viewer.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../model/certificate_model.dart';
@@ -76,7 +78,9 @@ class CertificateStack extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    launchUrl(Uri.parse(certificateList[index].credential));
+                    print(index);
+                    //  launchUrl(Uri.parse(certificateList[index].credential));
+                    ImageViewer2(context, index.toString());
                   },
                   child: Container(
                     height: 40,

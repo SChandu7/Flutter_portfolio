@@ -112,21 +112,6 @@ List<CertificateModel> certificateList = [
         'https://drive.google.com/file/d/1XwrZgQvk-GyIVYM7WGIPHYJ0IrwCB5mP/view?usp=sharing',
   ),
   CertificateModel(
-    name: 'Firebase Cloud Firestore',
-    organization: 'LinkedIn',
-    date: 'JUL 2023',
-    skills: 'Flutter . Dart . Firebase . FireStore',
-    credential:
-        'https://www.linkedin.com/learning/flutter-part-10-firebase-cloud-firestore',
-  ),
-  CertificateModel(
-    name: 'Foundations of Cybersecurity',
-    organization: 'Grow with Google on Coursera',
-    date: 'JUL 2023',
-    skills: 'Ethical Hacking . Linux . Cyber Security ',
-    credential: 'https://coursera.org/share/67e5cb0dd7c478f1d7ec81079c3a40b8',
-  ),
-  CertificateModel(
     name: 'Network Defense Essentials (NDE)',
     organization: 'EC-Council',
     date: 'JUL 2023',

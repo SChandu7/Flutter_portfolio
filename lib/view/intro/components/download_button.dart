@@ -1,6 +1,10 @@
+import 'dart:io' show Platform;
+
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/view/intro/components/pdf_viewer.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:pdfx/pdfx.dart';
 
 import '../../../res/constants.dart';
 
@@ -24,7 +28,17 @@ class _DownloadButtonState extends State<DownloadButton> {
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
           onTap: () {
-            launchUrl(Uri.parse('https://resume.chandus7.in'));
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => PdfScreen(
+                  pdfPath: "assets/resume.pdf",
+                  title: "None",
+                ),
+              ),
+            );
+
+            // launchUrl(Uri.parse('https://resume.chandus7.in'));
           },
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 250),
@@ -79,6 +93,75 @@ class _DownloadButtonState extends State<DownloadButton> {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class ResumeViewer extends StatefulWidget {
+  @override
+  _ResumeViewerState createState() => _ResumeViewerState();
+}
+
+class _ResumeViewerState extends State<ResumeViewer> {
+  late PdfController _pdfController;
+  bool isMobile = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _pdfController = PdfController(
+      document: PdfDocument.openAsset('assets/resume.pdf'),
+    );
+
+    // Detect mobile vs desktop/web
+    try {
+      if (Platform.isAndroid || Platform.isIOS) {
+        isMobile = true;
+      } else {
+        isMobile = false;
+      }
+    } catch (_) {
+      // Web goes here
+      isMobile = false;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Stack(
+        children: [
+          // Desktop/Web -> Scroll normally
+          // Mobile -> Zoom + Scroll
+          isMobile
+              ? InteractiveViewer(
+                  minScale: 1,
+                  maxScale: 5,
+                  child: PdfView(controller: _pdfController),
+                )
+              : SingleChildScrollView(
+                  child: PdfView(controller: _pdfController),
+                ),
+
+          /// Close button
+          Positioned(
+            top: 40,
+            right: 20,
+            child: GestureDetector(
+              onTap: () => Navigator.pop(context),
+              child: Container(
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.85),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(Icons.close, color: Colors.black, size: 28),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

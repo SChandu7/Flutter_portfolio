@@ -43,6 +43,12 @@ dependencies:
   url_launcher: ^6.3.1
   font_awesome_flutter: ^10.5.0
   flutter_animate: ^4.5.0
+  pdfx: 2.6.0
+  dio: ^5.9.0
+  flutter_pdfview: ^1.4.3
+  permission_handler: ^12.0.1
+  share_plus: ^12.0.1
+  syncfusion_flutter_pdfviewer: ^26.1.41
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +76,8 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/cert/
+    - assets/resume.pdf
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
