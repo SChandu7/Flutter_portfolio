@@ -76,7 +76,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
-    - assets/cert/
+    
     - assets/resume.pdf
   #   - images/a_dot_ham.jpeg
 

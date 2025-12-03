@@ -1,60 +1,79 @@
-import 'package:flutter/services.dart';
-import 'package:photo_view/photo_view.dart';
 import 'package:flutter/material.dart';
+import 'package:photo_view/photo_view.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ImageViewer2 {
-  ImageViewer2(BuildContext context, String title) {
-    _loadImage(context, title);
+  ImageViewer2(BuildContext context, String fileUrl) {
+    _handleFile(context, fileUrl);
   }
 
-  Future<void> _loadImage(BuildContext context, String name) async {
-    String cleanName = name.toLowerCase().replaceAll(" ", "_");
+  void _handleFile(BuildContext context, String url) async {
+    final lowerUrl = url.toLowerCase();
 
-    // possible extensions
-    List<String> extensions = [".png", ".jpg", ".jpeg"];
+    // check file type using extension
+    bool isImage = lowerUrl.endsWith(".png") ||
+        lowerUrl.endsWith(".jpg") ||
+        lowerUrl.endsWith(".jpeg") ||
+        lowerUrl.endsWith(".webp");
 
-    String? validPath;
+    bool isPDF = lowerUrl.endsWith(".pdf");
 
-    for (String ext in extensions) {
-      String path = "cert/$cleanName$ext";
-      try {
-        await rootBundle.load(path); // try loading
-        validPath = path; // success → store
-        break;
-      } catch (_) {
-        // continue checking next one
-      }
-    }
-
-    if (validPath == null) {
+    if (isImage) {
+      _showImage(context, url);
+    } else if (isPDF) {
+      _openPDF(context, url);
+    } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("❌ Image not found for: $name")),
+        const SnackBar(content: Text("⚠ Unsupported file format")),
       );
-      return;
     }
+  }
 
-    // If image exists → show it
-    showGeneralDialog(
-      barrierColor: Colors.black,
-      transitionDuration: const Duration(milliseconds: 500),
-      barrierDismissible: true,
-      barrierLabel: 'Barrier',
-      context: context,
-      pageBuilder: (context, animation, secondaryAnimation) {
-        return Center(
-          child: Hero(
-            tag: name,
-            child: Scaffold(
-              backgroundColor: Colors.black,
-              body: Center(
-                child: PhotoView(
-                  imageProvider: AssetImage(validPath!),
+ void _showImage(BuildContext context, String imageUrl) {
+  showGeneralDialog(
+    barrierColor: Colors.black.withOpacity(0.9),
+    transitionDuration: const Duration(milliseconds: 300),
+    barrierDismissible: true,
+    barrierLabel: 'Close', // 👈 FIXED
+    context: context,
+    pageBuilder: (_, __, ___) {
+      return Scaffold(
+        backgroundColor: Colors.black,
+        body: Stack(
+          children: [
+            Center(
+              child: PhotoView(
+                imageProvider: NetworkImage(imageUrl),
+                loadingBuilder: (c, _) => const CircularProgressIndicator(color: Colors.white),
+                errorBuilder: (c, _, __) => const Text(
+                  "⚠ Failed to load image",
+                  style: TextStyle(color: Colors.red),
                 ),
               ),
             ),
-          ),
-        );
-      },
-    );
+            Positioned(
+              top: 30,
+              right: 20,
+              child: IconButton(
+                icon: const Icon(Icons.close, color: Colors.white, size: 30),
+                onPressed: () => Navigator.pop(context),
+              ),
+            ),
+          ],
+        ),
+      );
+    },
+  );
+}
+
+
+  void _openPDF(BuildContext context, String url) async {
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("❌ Cannot open PDF")),
+      );
+    }
   }
 }

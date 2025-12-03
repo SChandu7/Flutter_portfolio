@@ -12,6 +12,9 @@ class CertificateStack extends StatelessWidget {
   final controller = Get.put(CertificationController());
   CertificateStack({super.key, required this.index});
   final int index;
+   String defaultCertificateImageUrl =
+    "https://placeholder-bucket.s3.amazonaws.com/default.jpg";
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -78,10 +81,15 @@ class CertificateStack extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    print(index);
-                    //  launchUrl(Uri.parse(certificateList[index].credential));
-                    ImageViewer2(context, index.toString());
-                  },
+  final String imageUrl =
+      certificateList[index].imageUrl?.isNotEmpty == true
+          ? certificateList[index].imageUrl!
+          : defaultCertificateImageUrl;
+
+  ImageViewer2(context, imageUrl);
+},
+                
+
                   child: Container(
                     height: 40,
                     width: 150,
