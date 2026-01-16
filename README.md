@@ -69,7 +69,7 @@ I welcome contributions and suggestions from the community! If you come across a
 
 Your feedback and thoughts are highly valued. Feel free to connect with me through:
 
-- **Email:** chandrasekharsuragani532@gmail.com
+- **Email:** dev@chandus7.in
 - **LinkedIn:** [S Chandra Sekhar](https://www.linkedin.com/in/chandus7)
 ## License
 
