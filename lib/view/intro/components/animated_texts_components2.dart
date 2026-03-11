@@ -32,7 +32,7 @@ class AnimatedImageContainer2State extends State<AnimatedImageContainer2>
 
   @override
   Widget build(BuildContext context) {
-    String img = "assets/images/image.png";
+    String img = "assets/images/image.webp";
     return AnimatedBuilder(
       animation: _controller,
       builder: (context, child) {
@@ -66,11 +66,11 @@ class AnimatedImageContainer2State extends State<AnimatedImageContainer2>
               onDoubleTap: () {
                 // Action to perform on tap
                 print('Button tapped!');
-                img = 'assets/images/profile.jpg';
+                img = 'assets/images/profile.webp';
                 setState(() {});
               },
               onTap: () {
-                img = 'assets/images/image.png';
+                img = 'assets/images/image.webp';
                 setState(() {});
               },
               child: Container(

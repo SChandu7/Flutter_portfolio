@@ -32,7 +32,7 @@ class AnimatedImageContainerState extends State<AnimatedImageContainer>
 
   @override
   Widget build(BuildContext context) {
-    String img = "assets/images/mineee.jpg";
+    String img = "assets/images/mineee.webp";
     return AnimatedBuilder(
       animation: _controller,
       builder: (context, child) {

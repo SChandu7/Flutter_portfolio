@@ -4,6 +4,8 @@ import 'package:flutter_portfolio/res/constants.dart';
 import 'package:flutter_portfolio/view/home/home.dart';
 import 'package:flutter_portfolio/view/intro/components/animated_texts_components2.dart';
 import 'package:flutter_portfolio/view/splash/componenets/animated_loading_text.dart';
+import 'package:http/http.dart' as http;
+
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -15,6 +17,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
+    trackVisit();
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
           context,
@@ -23,6 +26,17 @@ class _SplashViewState extends State<SplashView> {
           ));
     });
   }
+
+Future<void> trackVisit() async {
+
+  final response = await http.post(
+    Uri.parse("https://api.chandus7.in/visit/"),
+  );
+
+  if (response.statusCode == 200) {
+    print("Visit tracked");
+  }
+}
 
   @override
   Widget build(BuildContext context) {
