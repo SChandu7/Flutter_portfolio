@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.inforedz.app",
+      "sha256_cert_fingerprints": [
+        "45:98:4D:FD:E7:58:95:18:6D:F4:85:3B:7D:DC:C8:46:C2:9E:0D:AC:26:F4:50:3F:3A:AB:E6:B0:4E:69:DF:0B"
+      ]
+    }
+  }
+]
