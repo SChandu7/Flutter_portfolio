@@ -3,7 +3,7 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.inforedz.app",
+      "package_name": "com.infumedz.app",
       "sha256_cert_fingerprints": [
         "7B:2A:7D:F8:76:2A:C7:47:E3:D7:53:3E:3C:05:CE:BD:37:88:D8:98:96:B1:8C:76:44:8A:4C:46:85:82:C7:5A"
       ]
