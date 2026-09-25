@@ -1,0 +1,1054 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>InfuTechz Software Services</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap">
+
+<style>
+  /* === TOKENS === */
+  :root {
+    --bg:         #0A1628;
+    --bg-surface: #112240;
+    --bg-card:    #1A2F4A;
+    --accent:     #00B4D8;
+    --accent-dim: #007FA0;
+    --text:       #E8F4F8;
+    --text-muted: #8BAEC4;
+    --text-faint: #4A6B84;
+    --border:     #1E3A5F;
+    --success:    #22D3A5;
+    color-scheme: dark;
+  }
+
+  /* Light override — intentional single-dark, but respect explicit light */
+  :root[data-theme="light"] {
+    --bg:         #F0F6FA;
+    --bg-surface: #FFFFFF;
+    --bg-card:    #E8F1F7;
+    --accent:     #0077A8;
+    --accent-dim: #005980;
+    --text:       #0A1628;
+    --text-muted: #3A5A72;
+    --text-faint: #7A9DB5;
+    --border:     #C8DDE9;
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    padding-inline: 0;
+  }
+
+  /* === LAYOUT HELPERS === */
+  .container {
+    max-width: 1100px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  section {
+    padding-block: 80px;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    text-wrap: balance;
+    color: var(--text);
+  }
+
+  p { color: var(--text-muted); }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* === NAV === */
+  nav {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 100;
+    background: rgba(10, 22, 40, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding-block: 0;
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin-inline: auto;
+    padding-inline: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    gap: 24px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: -0.5px;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.3px;
+    line-height: 1.1;
+  }
+
+  .logo-sub {
+    font-size: 9px;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: block;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: #fff !important;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Space Grotesk', sans-serif;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .nav-cta:hover { background: var(--accent-dim); text-decoration: none; }
+
+  /* === HERO === */
+  .hero {
+    padding-block: 100px 80px;
+    border-bottom: 1px solid var(--border);
+    background: radial-gradient(ellipse 80% 60% at 60% 0%, rgba(0,180,216,0.08) 0%, transparent 70%);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0,180,216,0.12);
+    border: 1px solid rgba(0,180,216,0.3);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    line-height: 1.15;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 span {
+    color: var(--accent);
+  }
+
+  .hero-lead {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    max-width: 480px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    padding: 12px 26px;
+    border-radius: 7px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--accent-dim); text-decoration: none; }
+
+  .btn-ghost {
+    color: var(--text-muted);
+    padding: 12px 26px;
+    border-radius: 7px;
+    border: 1px solid var(--border);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+  /* Hero stats panel */
+  .hero-panel {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .stat-cell {
+    padding: 20px;
+    background: var(--bg-card);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+
+  .stat-cell.full { grid-column: 1 / -1; }
+
+  .stat-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  .stat-tag {
+    display: inline-block;
+    margin-top: 8px;
+    background: rgba(0,180,216,0.1);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* === SECTION HEADER === */
+  .section-header {
+    margin-bottom: 48px;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-family: 'Space Grotesk', sans-serif;
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin-bottom: 14px;
+  }
+
+  .section-lead {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 560px;
+    line-height: 1.7;
+  }
+
+  /* === SERVICES === */
+  #services { background: var(--bg-surface); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .service-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .service-card:hover {
+    border-color: rgba(0,180,216,0.4);
+    transform: translateY(-2px);
+  }
+
+  .service-card:hover::before { opacity: 1; }
+
+  .service-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(0,180,216,0.12);
+    border: 1px solid rgba(0,180,216,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    font-size: 20px;
+  }
+
+  .service-card h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+    letter-spacing: -0.2px;
+  }
+
+  .service-card p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 16px;
+  }
+
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    background: rgba(0,180,216,0.08);
+    border: 1px solid rgba(0,180,216,0.2);
+    border-radius: 4px;
+    padding: 2px 8px;
+    color: var(--text-muted);
+    letter-spacing: 0.3px;
+  }
+
+  /* === ABOUT === */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .about-content h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+  }
+
+  .about-content p {
+    font-size: 15px;
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  .about-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .about-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .about-list li::before {
+    content: '▸';
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 12px;
+  }
+
+  .info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .info-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+  }
+
+  .info-card-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .info-card-value {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .info-card-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 3px;
+  }
+
+  /* === CONTACT === */
+  #contact { background: var(--bg-surface); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 9px;
+    background: rgba(0,180,216,0.1);
+    border: 1px solid rgba(0,180,216,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .contact-item-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    font-family: 'Space Grotesk', sans-serif;
+    margin-bottom: 3px;
+  }
+
+  .contact-item-value {
+    font-size: 15px;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .contact-item-value a {
+    color: var(--accent);
+  }
+
+  /* Contact form */
+  .contact-form { display: flex; flex-direction: column; gap: 14px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    color: var(--text-muted);
+    font-family: 'Space Grotesk', sans-serif;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input, textarea, select {
+    width: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 10px 14px;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: vertical;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(0,180,216,0.1);
+  }
+
+  textarea { min-height: 100px; }
+
+  select option { background: var(--bg-card); }
+
+  .form-submit {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 12px 24px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: 100%;
+  }
+
+  .form-submit:hover { background: var(--accent-dim); }
+
+  .form-note {
+    font-size: 12px;
+    color: var(--text-faint);
+    text-align: center;
+  }
+
+  #form-success {
+    background: rgba(34,211,165,0.1);
+    border: 1px solid rgba(34,211,165,0.3);
+    border-radius: 8px;
+    padding: 16px;
+    color: var(--success);
+    font-size: 14px;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  /* === FOOTER === */
+  footer {
+    border-top: 1px solid var(--border);
+    padding-block: 32px;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin-inline: auto;
+    padding-inline: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-copy {
+    font-size: 13px;
+    color: var(--text-faint);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+    color: var(--text-faint);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--accent); }
+
+  /* === DIVIDER === */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin-block: 48px;
+  }
+
+  /* === CLIENTS / TRUST BAR === */
+  .trust-bar {
+    padding-block: 36px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .trust-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .trust-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--text-faint);
+    opacity: 0.7;
+    text-transform: uppercase;
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 768px) {
+    section { padding-block: 56px; }
+
+    .hero { padding-block: 64px 48px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero h1 { font-size: 2rem; }
+    .hero-panel { grid-template-columns: 1fr 1fr; padding: 22px; gap: 14px; }
+    .stat-cell.full { grid-column: 1 / -1; }
+
+    .services-grid { grid-template-columns: 1fr; gap: 14px; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .form-row { grid-template-columns: 1fr; }
+
+    .nav-links { display: none; }
+
+    .trust-items { gap: 28px; }
+  }
+
+  @media (max-width: 500px) {
+    .hero-panel { grid-template-columns: 1fr; }
+    .stat-cell.full { grid-column: 1; }
+  }
+
+  /* Smooth scroll */
+  html { scroll-behavior: smooth; }
+</style>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">IT</div>
+      <div class="logo-text">
+        InfuTechz
+        <span class="logo-sub">Software Services</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get in Touch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">Software &amp; Technology Services</div>
+        <h1>We Build <span>Intelligent</span> Systems That Work</h1>
+        <p class="hero-lead">
+          InfuTechz delivers production-grade software, mobile applications, IoT infrastructure, and embedded systems — from enterprise SaaS to autonomous drone platforms.
+        </p>
+        <div class="hero-actions">
+          <a href="#services" class="btn-primary">Explore Services</a>
+          <a href="#contact" class="btn-ghost">Request a Proposal</a>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <div class="stat-cell">
+          <div class="stat-num">15+</div>
+          <div class="stat-label">Projects Delivered</div>
+          <div class="stat-tag">Production</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">6</div>
+          <div class="stat-label">Service Verticals</div>
+          <div class="stat-tag">Full Stack</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">AWS</div>
+          <div class="stat-label">Cloud Infrastructure</div>
+          <div class="stat-tag">Hosted</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">IoT</div>
+          <div class="stat-label">Embedded &amp; Sensors</div>
+          <div class="stat-tag">ESP32 / RPi</div>
+        </div>
+        <div class="stat-cell full">
+          <div class="stat-num" style="font-size:1.2rem; color: var(--text-muted);">Guntur, Andhra Pradesh, India</div>
+          <div class="stat-label">Registered Business &middot; DUNS Verified</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="container">
+    <p class="trust-label">Technologies we work with</p>
+    <div class="trust-items">
+      <span class="trust-item">Flutter</span>
+      <span class="trust-item">Django</span>
+      <span class="trust-item">AWS</span>
+      <span class="trust-item">ESP32</span>
+      <span class="trust-item">ArduPilot</span>
+      <span class="trust-item">Raspberry Pi</span>
+      <span class="trust-item">MySQL</span>
+      <span class="trust-item">Python</span>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">What We Offer</p>
+      <h2 class="section-title">End-to-End Technology Services</h2>
+      <p class="section-lead">From concept to deployment, we build systems that are built to last — integrating software, hardware, and AI in ways that solve real problems.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <h3>Mobile App Development</h3>
+        <p>Cross-platform Flutter applications with production-ready architecture. Role-based access, REST API integration, animations, and offline capability.</p>
+        <div class="service-tags">
+          <span class="tag">Flutter</span>
+          <span class="tag">Dart</span>
+          <span class="tag">Android / iOS</span>
+          <span class="tag">Windows</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <h3>Web Development</h3>
+        <p>Full-stack web applications and e-commerce platforms using Django REST Framework with MySQL backends, AWS hosting, and scalable database design.</p>
+        <div class="service-tags">
+          <span class="tag">Django</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">AWS</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🤖</div>
+        <h3>AI &amp; ML Integration</h3>
+        <p>Machine learning model deployment, recommendation systems, chatbot integration, and computer vision pipelines for real-world production environments.</p>
+        <div class="service-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Flask ML</span>
+          <span class="tag">Gemini API</span>
+          <span class="tag">CV</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔌</div>
+        <h3>IoT &amp; Embedded Systems</h3>
+        <p>Sensor-to-cloud pipelines using ESP32, Arduino, and Raspberry Pi. RFID systems, NPK/pH sensors, motor control, and real-time data dashboards.</p>
+        <div class="service-tags">
+          <span class="tag">ESP32</span>
+          <span class="tag">Arduino</span>
+          <span class="tag">RFID</span>
+          <span class="tag">Sensors</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🚁</div>
+        <h3>Drone &amp; Robotics</h3>
+        <p>Custom drone development from airframe to autonomous control — ArduPilot integration, 4G telemetry, ground control stations, and gesture/AI-based navigation.</p>
+        <div class="service-tags">
+          <span class="tag">ArduPilot</span>
+          <span class="tag">MAVLink</span>
+          <span class="tag">4G LTE</span>
+          <span class="tag">Flutter GCS</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">☁️</div>
+        <h3>Cloud Infrastructure</h3>
+        <p>AWS deployment, cost optimization, database migration, and scalable cloud architecture. Production hosting with high availability for enterprise applications.</p>
+        <div class="service-tags">
+          <span class="tag">AWS EC2</span>
+          <span class="tag">S3</span>
+          <span class="tag">RDS</span>
+          <span class="tag">Cost Opt.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-content">
+        <p class="section-eyebrow">About InfuTechz</p>
+        <h2>Technology Built for the Real World</h2>
+        <p>InfuTechz Software Services is a technology company based in Guntur, Andhra Pradesh, India. We specialize in building intelligent, integrated systems that combine mobile applications, cloud backends, AI models, IoT hardware, and embedded electronics.</p>
+        <p>We work with institutional clients, defence organizations, and businesses who need systems that are reliable, scalable, and built to production standards — not demos or prototypes.</p>
+        <ul class="about-list">
+          <li>Production-grade systems delivered for institutional and defence clients</li>
+          <li>Full-stack capability across software, cloud, and hardware layers</li>
+          <li>Integrated AI + IoT + Mobile solutions under one engagement</li>
+          <li>Registered business with verifiable commercial identity</li>
+          <li>Based in Andhra Pradesh; serving clients across India</li>
+        </ul>
+      </div>
+
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="info-card-label">Business Name</div>
+          <div class="info-card-value">InfuTechz Software Services</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Business Type</div>
+          <div class="info-card-value">Technology &amp; Software Services</div>
+          <div class="info-card-sub">Freelance / Contract Development</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Location</div>
+          <div class="info-card-value">Guntur, Andhra Pradesh</div>
+          <div class="info-card-sub">India</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Service Area</div>
+          <div class="info-card-value">Pan-India &amp; Remote</div>
+          <div class="info-card-sub">Software, IoT, Drone, AI/ML</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Contact</div>
+          <div class="info-card-value">dev@chandus7.in</div>
+          <div class="info-card-sub">Business inquiries &amp; project requests</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <p class="section-eyebrow">Contact Us</p>
+        <h2 class="section-title">Start a Project</h2>
+        <p class="section-lead" style="margin-bottom: 36px;">Reach out with your requirements. We respond within 24 hours with a technical assessment and project outline.</p>
+
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-value">dev@chandus7.in</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-item-label">Address</div>
+            <div class="contact-item-value">Guntur, Andhra Pradesh, India</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <div class="contact-item-label">Business Hours</div>
+            <div class="contact-item-value">Mon – Sat, 9:00 AM – 7:00 PM IST</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div>
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" placeholder="Ravi" required>
+            </div>
+            <div>
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" placeholder="Kumar">
+            </div>
+          </div>
+          <div>
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="ravi@company.com" required>
+          </div>
+          <div>
+            <label for="service">Service Required</label>
+            <select id="service">
+              <option value="">Select a service…</option>
+              <option>Mobile App Development</option>
+              <option>Web Development</option>
+              <option>AI / ML Integration</option>
+              <option>IoT &amp; Embedded Systems</option>
+              <option>Drone &amp; Robotics</option>
+              <option>Cloud Infrastructure</option>
+              <option>Multiple Services</option>
+            </select>
+          </div>
+          <div>
+            <label for="message">Project Details</label>
+            <textarea id="message" placeholder="Describe your project, timeline, and any technical requirements…" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Inquiry</button>
+          <p class="form-note">We'll respond within 24 hours with a technical assessment.</p>
+          <div id="form-success" hidden>
+            ✓ Message received! We'll get back to you at the email provided within 24 hours.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2024 InfuTechz Software Services. Guntur, Andhra Pradesh, India.</p>
+    <ul class="footer-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.form-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    setTimeout(function() {
+      document.getElementById('contactForm').querySelector('.form-submit').hidden = true;
+      document.getElementById('form-success').hidden = false;
+    }, 800);
+  });
+</script>
+
+</body></html>
